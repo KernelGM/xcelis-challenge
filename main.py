@@ -1,5 +1,6 @@
 from modules.get_distances import Distances
 from modules.get_hubs import Hubs
+from modules.get_provinces import Provinces
 from modules.logs import Logs
 from modules.time_meter import time_meter
 
@@ -8,7 +9,8 @@ from modules.time_meter import time_meter
 def run():
     Logs().init_logs()
     # Distances().sheet_distance()
-    Hubs().sheet_hubs()
+    # Hubs().sheet_hubs()
+    Provinces().sheet_provinces()
     Logs().finish_logs()
 
 
