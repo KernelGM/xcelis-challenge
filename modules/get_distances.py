@@ -6,7 +6,7 @@ from modules.folders import data, output
 
 class Distances:
     def __init__(self) -> None:
-        pass
+        ...
 
     def sheet_distance(self):
         def fix_columns(row, flag, column, back):
@@ -22,10 +22,10 @@ class Distances:
             on_bad_lines="skip",
             low_memory=False,
             names=[
-                "org",  # org: código do município de origem
-                "dest",  # dest: código do município de destino
-                "km_linear",  # km_linear: comprimento do arco na superfície da terra, ligando os pontos org e dest # noqa: E501
-                "km_rota",  # km_rota: comprimento da rota terrestre (estrada) ligando os municípios # noqa: E501
+                "org",  # código do município de origem
+                "dest",  # código do município de destino
+                "km_linear",  # km do arco na superfície da terra, ligando os municípios # noqa: E501
+                "km_rota",  # km da rota terrestre ligando os municípios
             ],
         )
 
@@ -52,13 +52,11 @@ class Distances:
             axis=1,
         )
 
-        # Convert columns "km_linear" and "km_rota" to float64 and "org" and "dest" to int64
+        # Convert "km_linear" and "km_rota" to float64 and "org" and "dest" to int64
         self.dist["km_linear"] = pd.to_numeric(self.dist["km_linear"], errors="coerce")
         self.dist["km_rota"] = pd.to_numeric(self.dist["km_rota"], errors="coerce")
         self.dist["org"] = pd.to_numeric(self.dist["org"], errors="coerce")
         self.dist["dest"] = pd.to_numeric(self.dist["dest"], errors="coerce")
-
-        print(self.dist.dtypes)
 
         # Swap if rows "km_linear" > "km_rota"
         self.dist[["km_linear", "km_rota"]] = self.dist[["km_rota", "km_linear"]].where(
@@ -68,5 +66,4 @@ class Distances:
 
         self.dist.to_csv(f"{output}/distance.csv", index=False, header=False)
 
-        logger.debug(self.sheet_distance)
         logger.debug("DataFrame 'distancia.csv' corrigido")
