@@ -15,8 +15,6 @@ def time_meter(func):
             f"A função {func.__name__} levou \
 {tot_time.total_seconds():.0f}s para acabar"
         )
-        logger.debug("<!--==========================-->")
-
         return result
 
     return nested

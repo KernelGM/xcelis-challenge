@@ -14,7 +14,7 @@ class Logs:
             format="{level} - {time:DD/MM/YY - HH:mm:ss} - {message}",
         )
 
-        logger.debug("Software iniciado")
+        logger.debug("<!--=====Software iniciado=====-->")
 
     def finish_logs(self):
-        logger.debug("Software encerrado\n")
+        logger.debug("<!--=====Software encerrado=====-->")
