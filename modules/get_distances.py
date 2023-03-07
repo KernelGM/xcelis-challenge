@@ -29,6 +29,9 @@ class Distances:
             ],
         )
 
+        # Remove first line "fake_header"
+        self.dist = self.dist.tail(-1)
+
         # Fix on column "km_linear" when display the specifc flag
         self.dist["km_linear"] = self.dist.apply(
             lambda row: fix_columns(row, "mesma cidade", "km_linear", 10.0),
@@ -49,9 +52,13 @@ class Distances:
             axis=1,
         )
 
-        # Convert columns "km_linear" and "km_rota" to float64
+        # Convert columns "km_linear" and "km_rota" to float64 and "org" and "dest" to int64
         self.dist["km_linear"] = pd.to_numeric(self.dist["km_linear"], errors="coerce")
         self.dist["km_rota"] = pd.to_numeric(self.dist["km_rota"], errors="coerce")
+        self.dist["org"] = pd.to_numeric(self.dist["org"], errors="coerce")
+        self.dist["dest"] = pd.to_numeric(self.dist["dest"], errors="coerce")
+
+        print(self.dist.dtypes)
 
         # Swap if rows "km_linear" > "km_rota"
         self.dist[["km_linear", "km_rota"]] = self.dist[["km_rota", "km_linear"]].where(
