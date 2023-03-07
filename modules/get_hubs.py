@@ -19,13 +19,20 @@ class Hubs:
                 "Nome HUB",  # nome da unidade de distribuição
                 "COD inicial",  # primeiro município atendido pela unidade
                 "COD final",  # último município atendido pela unidade
-                "Capacidade Entrega",  # qnt de pedidos que podem ser enviados pela unidade em um dia # noqa: E501
+                "Capacidade Entrega",  # qtd de pedidos que podem ser enviados pela unidade em um dia # noqa: E501
             ],
             encoding="cp1252",
         )
+
         # Remove first line "fake_header"
         self.hubs = self.hubs.tail(-1)
 
+        self.hubs["type"] = self.hubs["Nome HUB"].apply(lambda x: x.split(" ", 1)[0])
+        self.hubs["order"] = self.hubs["Nome HUB"].apply(lambda x: x.split(" ")[-1])
+        self.hubs["province"] = self.hubs["Nome HUB"].apply(
+            lambda x: x.split(" ")[1:-1]
+        )
+
         self.hubs.to_csv(f"{output}/hubs.csv", index=False, header=False)
 
-        logger.debug("DataFrame 'distancia.csv' corrigido")
+        logger.debug("DataFrame 'hubs.csv' corrigido")
