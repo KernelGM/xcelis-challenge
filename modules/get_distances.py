@@ -49,6 +49,16 @@ class Distances:
             axis=1,
         )
 
+        # Convert columns "km_linear" and "km_rota" to float64
+        self.dist["km_linear"] = pd.to_numeric(self.dist["km_linear"], errors="coerce")
+        self.dist["km_rota"] = pd.to_numeric(self.dist["km_rota"], errors="coerce")
+
+        # Swap if rows "km_linear" > "km_rota"
+        self.dist[["km_linear", "km_rota"]] = self.dist[["km_rota", "km_linear"]].where(
+            self.dist["km_linear"] > self.dist["km_rota"],
+            self.dist[["km_linear", "km_rota"]].values,
+        )
+
         self.dist.to_csv(f"{output}/distance.csv", index=False, header=False)
 
         logger.debug(self.sheet_distance)
