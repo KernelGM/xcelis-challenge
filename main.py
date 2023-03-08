@@ -1,3 +1,4 @@
+from modules.get_demands import Demands
 from modules.get_distances import Distances
 from modules.get_hubs import Hubs
 from modules.get_provinces import Provinces
@@ -10,9 +11,10 @@ from modules.time_meter import time_meter
 def run():
     Logs().init_logs()
     ExtractFiles().extract()
-    Distances().sheet_distance()
-    Hubs().sheet_hubs()
-    Provinces().sheet_provinces()
+    Distances()
+    Hubs()
+    Provinces()
+    Demands().sheet_demands()
     Logs().finish_logs()
 
 

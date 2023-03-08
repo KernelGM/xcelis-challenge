@@ -6,9 +6,6 @@ from modules.folders import data, output
 
 class Provinces:
     def __init__(self) -> None:
-        ...
-
-    def sheet_provinces(self):
         self.prov = pd.read_csv(
             f"{data}/municipios.csv",
             sep=";",

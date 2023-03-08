@@ -1,5 +1,4 @@
-from os import listdir, mkdir, path
-from shutil import unpack_archive
+from os import listdir, path
 from zipfile import ZipFile
 
 from loguru import logger

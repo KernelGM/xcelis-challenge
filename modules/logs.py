@@ -8,6 +8,9 @@ now_time = datetime.today().strftime("%d-%m-%Y_%H")
 
 
 class Logs:
+    def __init__(self) -> None:
+        ...
+
     def init_logs(self):
         logger.add(
             sink=f"{logs}/{now_time}.log",
