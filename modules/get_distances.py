@@ -18,6 +18,7 @@ class Distances:
         self.dist = pd.read_csv(
             f"{data}/distancias.csv",
             sep=",",
+            skiprows=1,
             header=None,
             on_bad_lines="skip",
             low_memory=False,
@@ -28,9 +29,6 @@ class Distances:
                 "km_rota",  # km da rota terrestre ligando os municípios
             ],
         )
-
-        # Remove first line "fake_header"
-        self.dist = self.dist.tail(-1)
 
         # Fix on column "km_linear" when display the specifc flag
         self.dist["km_linear"] = self.dist.apply(

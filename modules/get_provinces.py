@@ -12,6 +12,7 @@ class Provinces:
         self.prov = pd.read_csv(
             f"{data}/municipios.csv",
             sep=";",
+            skiprows=1,
             header=None,
             on_bad_lines="skip",
             low_memory=False,
@@ -21,9 +22,6 @@ class Provinces:
             ],
             encoding="cp1252",
         )
-
-        # Remove first line "fake_header"
-        self.prov = self.prov.tail(-1)
 
         self.prov["name"] = self.prov["Município - UF"].apply(
             lambda x: x.split("-", 1)[0].rstrip()

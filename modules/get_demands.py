@@ -12,6 +12,7 @@ class Demands:
         self.demands = pd.read_csv(
             f"{demands}/pedidos000.csv",
             sep=";",
+            skiprows=1,
             header=None,
             on_bad_lines="skip",
             low_memory=False,
@@ -20,10 +21,12 @@ class Demands:
                 "COD org",
                 "COD dest",
             ],
+            dtype={
+                "Id Pedido": "int64",
+                "COD org": "int64",
+                "COD dest": "int64",
+            },
         )
-
-        # Remove first line "fake_header"
-        self.demands = self.demands.tail(-1)
 
         self.demands.to_csv(
             f"{output_demands}/pedidos000.csv", index=False, header=False

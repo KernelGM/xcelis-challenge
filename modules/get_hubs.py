@@ -12,6 +12,7 @@ class Hubs:
         self.hubs = pd.read_csv(
             f"{data}/hubs.csv",
             sep=";",
+            skiprows=1,
             header=None,
             on_bad_lines="skip",
             low_memory=False,
@@ -21,11 +22,14 @@ class Hubs:
                 "COD final",  # último município atendido pela unidade
                 "Capacidade Entrega",  # qtd de pedidos que podem ser enviados pela unidade em um dia # noqa: E501
             ],
+            dtype={
+                "Nome HUB": "str",
+                "COD inicial": "int64",
+                "COD final": "int64",
+                "Capacidade Entrega": "int64",
+            },
             encoding="cp1252",
         )
-
-        # Remove first line "fake_header"
-        self.hubs = self.hubs.tail(-1)
 
         self.hubs["type"] = self.hubs["Nome HUB"].apply(lambda x: x.split(" ", 1)[0])
         self.hubs["order"] = self.hubs["Nome HUB"].apply(lambda x: x.split(" ")[-1])
