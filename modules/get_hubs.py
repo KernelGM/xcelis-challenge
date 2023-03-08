@@ -6,6 +6,9 @@ from modules.folders import data, output
 
 class Hubs:
     def __init__(self) -> None:
+        self.sheet_hubs()
+
+    def sheet_hubs(self):
         self.hubs = pd.read_csv(
             f"{data}/hubs.csv",
             sep=";",

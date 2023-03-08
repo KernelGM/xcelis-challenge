@@ -6,6 +6,9 @@ from modules.folders import data, output
 
 class Distances:
     def __init__(self) -> None:
+        self.sheet_distances()
+
+    def sheet_distances(self):
         def fix_columns(row, flag, column, back):
             if row[column] == flag:
                 return back

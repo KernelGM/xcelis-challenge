@@ -2,12 +2,11 @@ import pandas as pd
 from loguru import logger
 
 from modules.folders import demands, output_demands
-from modules.get_hubs import Hubs
 
 
 class Demands:
     def __init__(self) -> None:
-        print(Hubs().hubs)
+        self.sheet_demands()
 
     def sheet_demands(self):
         self.demands = pd.read_csv(

@@ -11,9 +11,9 @@ from modules.time_meter import time_meter
 def run():
     Logs().init_logs()
     ExtractFiles().extract()
-    Distances()
-    Hubs()
-    Provinces()
+    Distances().sheet_distances()
+    Hubs().sheet_hubs()
+    Provinces().sheet_provinces()
     Demands().sheet_demands()
     Logs().finish_logs()
 
