@@ -7,7 +7,7 @@ O código foi todo feito em Python (3.11.0) usando as bibliotecas citadas abaixo
 - Pandas
 - Loguru
 
-## Funcionalidades
+## Estrutura do projeto
 Dentro da pasta principal encontramos os seguintes arquivos/pastas:
 - modules (pasta onde contém os códigos)
 - .gitignore (configuração para não fazer commit dos arquivos que julgo ser desnecessários)
@@ -25,6 +25,9 @@ Dentro da pasta modules temos:
 - logs.py (configura de forma genérica os arquivos de logs para consulta posterior caso haja algum erro)
 - organizer.py (serve como um extrator de arquivos .zip para não ter nenhum tipo de configuração manual)
 - time_meter.py (este é um calculador de quanto tempo a função demorou para ser executada, calculando assim todo o tempo de processamento)
+
+## Funcionalidades
+- Com esse código na versão atual conseguimos apenas tratar os dados e extrair os arquivos de pedidos, nenhum relatório será gerado
 
 ## Instruções para executar o software
 - Clone o repositório
