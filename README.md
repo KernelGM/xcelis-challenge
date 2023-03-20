@@ -16,11 +16,15 @@ Dentro da pasta principal encontramos os seguintes arquivos/pastas:
 - requirements.txt (bibliotecas necessárias para rodar o projeto)
 
 Dentro da pasta modules temos:
-- folders.py (arquivo de configuração onde podemos subistituir com facilidade os arquivos de alimentação para o software)
+- folders.py (arquivo de configuração onde podemos substituir com facilidade os arquivos de alimentação para o software)
 - framework.py (onde seria desenvolvido a junção dos arquivos e consequentemente a formação do relatório final)
 - get_demands.py (trata o tipo de dados e configura os arquivos de "pedidos.csv")
 - get_distances.py (trata o tipo de dados e configura o arquivo de "distancia.csv")
-
+- get_hubs.py (trata o tipo de dados e configura o arquivo de "hubs.csv")
+- get_provinces.py (trata o tipo de dados e configura o arquivo de "municipios.csv")
+- logs.py (configura de forma genérica os arquivos de logs para consulta posterior caso haja algum erro)
+- organizer.py (serve como um extrator de arquivos .zip para não ter nenhum tipo de configuração manual)
+- time_meter.py (este é um calculador de quanto tempo a função demorou para ser executada, calculando assim todo o tempo de processamento)
 
 ## Instruções para executar o software
 - Clone o repositório
