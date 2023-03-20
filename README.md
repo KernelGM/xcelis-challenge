@@ -7,6 +7,21 @@ O código foi todo feito em Python (3.11.0) usando as bibliotecas citadas abaixo
 - Pandas
 - Loguru
 
+## Funcionalidades
+Dentro da pasta principal encontramos os seguintes arquivos/pastas:
+- modules (pasta onde contém os códigos)
+- .gitignore (configuração para não fazer commit dos arquivos que julgo ser desnecessários)
+- README.MD (este MarkDown)
+- Main.py (arquivo onde é chamado as classes e outros arquivos Python dentro da pasta modules)
+- requirements.txt (bibliotecas necessárias para rodar o projeto)
+
+Dentro da pasta modules temos:
+- folders.py (arquivo de configuração onde podemos subistituir com facilidade os arquivos de alimentação para o software)
+- framework.py (onde seria desenvolvido a junção dos arquivos e consequentemente a formação do relatório final)
+- get_demands.py (trata o tipo de dados e configura os arquivos de "pedidos.csv")
+- get_distances.py (trata o tipo de dados e configura o arquivo de "distancia.csv")
+
+
 ## Instruções para executar o software
 - Clone o repositório
 ```{.py3 linenums='0'}
