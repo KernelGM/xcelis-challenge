@@ -10,13 +10,13 @@ from modules.time_meter import time_meter
 
 @time_meter
 def run():
-    # Logs().init_logs()
-    # ExtractFiles().extract()
-    # Distances().sheet_distances()
-    # Hubs().sheet_hubs()
-    # Provinces().sheet_provinces()
-    # Demands().sheet_demands()
-    # Logs().finish_logs()
+    Logs().init_logs()
+    ExtractFiles().extract()
+    Distances().sheet_distances()
+    Hubs().sheet_hubs()
+    Provinces().sheet_provinces()
+    Demands().sheet_demands()
+    Logs().finish_logs()
     Framework().compare_sheets()
 
 
