@@ -17,7 +17,6 @@ def run():
     Provinces().sheet_provinces()
     Demands().sheet_demands()
     Logs().finish_logs()
-    Framework().compare_sheets()
 
 
 if __name__ == "__main__":
